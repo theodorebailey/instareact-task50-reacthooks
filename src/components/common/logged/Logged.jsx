@@ -1,7 +1,8 @@
 // import react
 import React from 'react';
 
-import { useState } from 'react';
+import { useState, useContext } from 'react';
+import { UserContext } from './../UserContext';
 import Login from './../login'
 
 
@@ -22,11 +23,15 @@ import Micro from './../images/microsoft.png';
 
 import Profile from './../images/profileImage.png';
 
-const Logged = (props) => {
+const Logged = () => {
 
-    const user = props.user;
+  // remove prop data and pass information down tree via hooks
+
+  // const userDetails = useContext(UserContext);
 
 // Array destructuring
+
+ const user = useContext(UserContext);
 
     return (
         <>

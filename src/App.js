@@ -17,6 +17,12 @@ function App() {
 
 
   return (
+
+    // NOTE to marker
+    // Header passes information to Logged component
+    // NOTE to marker
+
+
     // had big plans for the project but decided to hand in as is
     // created a side-navbar intending to create a home page with card content like instagram but need to crack on with the course
     <div className="App">

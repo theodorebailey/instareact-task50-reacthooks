@@ -2,6 +2,7 @@
 import React from 'react';
 // we can move location as long as items remain in common folder
 import { Navbar, Footer, Login, Logged } from '../../common';
+import { UserContext } from './../UserContext';
 import { Link } from 'react-router-dom';
 
 import Dualphone from './../images/dualphone.png';
@@ -17,16 +18,33 @@ import Button from '@mui/material/Button';
 
 
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 import './Header.css';
 
 // create component
 function Header () {
 
+  // Data would usually come from an API
+  // const [users, setUsers] = useState([
+  //   {username: "michael", email: "michael@email.com", age: 30, id: 1 },
+  //   {username: "joshua", email: "joshua@email.com", age: 35, id: 2 },
+  //   {username: "steven", email: "steven@email.com", age: 25, id: 3 }
+  // ]);
+
+  // Don't nest useState hooks - ever, they will not be rendered in correct order and will crash your app
+
   const [value, setValue] = useState("input");
 
   const [update, setUpdate] = useState(value);
+
+  // will run everytime we re-render
+  // useEffect fire everytime it re-renders
+  // second arugment, dependency array
+  // useEffect(() => {
+  //   console.log("Hello, useEffect");
+  //   console.log(users);
+  // }, []);
 
   const handleChange = (e) => {
     setValue(e.target.value);
@@ -36,7 +54,9 @@ function Header () {
     setUpdate(value);
   }
 
- 
+
+
+
   return (
     <>
     <article id="loginSection">
@@ -73,7 +93,9 @@ function Header () {
             <a href="https://play.google.com/store/apps/details?id=com.instagram.android&referrer=utm_source%3Dinstagramweb%26utm_campaign%3DloginPage%26ig_mid%3D9BE8C3F1-50A5-4B90-885B-1BA669A2F816%26utm_content%3Dlo%26utm_medium%3Dbadge&pli=1" target="_blank"><img className="googleLinks" src={Google} alt="Google play" /></a>
             <a href="ms-windows-store://pdp/?productid=9nblggh5l9xt&referrer=appbadge&source=www.instagram.com&mode=mini&pos=-1260%2C0%2C1260%2C757" target="_blank"><img className="microLinks" src={Micro} alt="Microsoft store" /></a>
       </div>
-      <Logged user={ value } /> 
+      <UserContext.Provider value={ value }>
+        <Logged /> 
+      </ UserContext.Provider>
     </article>
   </>      
     )
