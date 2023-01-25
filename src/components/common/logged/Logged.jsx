@@ -26,9 +26,6 @@ const Logged = (props) => {
 
     const user = props.user;
 
-    console.log(props);
-    console.log(props.user);
-
 // Array destructuring
 
     return (

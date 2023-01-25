@@ -66,7 +66,6 @@ function Header () {
             </div>
           </div>
           </form>
-          
           <div className="container">
             <p>Don't have an account? <a className="instagramLink" href="https://www.instagram.com" target="_target">Sign up</a></p>
           </div>
