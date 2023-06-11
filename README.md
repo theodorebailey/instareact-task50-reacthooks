@@ -2,6 +2,8 @@ Install Node.js
 
 npm install react-scripts
 
+npm start
+
 
 # Getting Started with Create React App
 
